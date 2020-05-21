@@ -10,8 +10,9 @@ module BotMessenger
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    config.paths.add Files.joint('app','bot'), glob:File.join('**','*.rb')
-    config.autoload_paths += Dir[Rails.root.join('app','bot','*')]
+   # Auto-load the bot and its subdirectories
+    config.paths.add File.join('app', 'bot'), glob: File.join('**', '*.rb')
+    config.autoload_paths += Dir[Rails.root.join('app', 'bot', '*')]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
